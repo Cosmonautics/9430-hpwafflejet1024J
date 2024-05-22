@@ -1,0 +1,167 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.8029375282051535,
+      "y": 4.345529467757965
+    },
+    "rotation": -56.819862991768005
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "sequential",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "MoveToFloorIntakePositionCommand"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "DoNoteIntakeActionCommand"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 0.08
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "center3Grab"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "sequential",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "center3Shoot"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "StopNoteIntakeEjectActionCommand"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "MoveToAMPSpeakerScorePositionCommand"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 0.5
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "DoSpeakerScoreAutoCommand"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.2
+          }
+        },
+        {
+          "type": "sequential",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "MoveToFloorIntakePositionCommand"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "DoNoteIntakeActionCommand"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 0.08
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "center4Grab"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.5
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "MoveToTransitPositionCommand"
+          }
+        },
+        {
+          "type": "sequential",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "StopNoteIntakeEjectActionCommand"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "center4Shoot"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "MoveToAMPSpeakerScorePositionCommand"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.25
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}
