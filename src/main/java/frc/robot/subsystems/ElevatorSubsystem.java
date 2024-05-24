@@ -1,10 +1,11 @@
 package frc.robot.subsystems;
 
+import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkPIDController;
 import com.revrobotics.CANSparkBase.SoftLimitDirection;
 import com.revrobotics.CANSparkLowLevel.MotorType;
+import com.revrobotics.SparkAbsoluteEncoder.Type;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ElevatorConstants;
@@ -13,7 +14,7 @@ public class ElevatorSubsystem extends SubsystemBase {
     private final CANSparkMax m_ElevatorMotorLeft;
     private final CANSparkMax m_ElevatorMotorRight;
     private final SparkPIDController m_ElevatorPIDController;
-    private final RelativeEncoder m_ElevatorThroughBoreEncoder;
+    private final AbsoluteEncoder m_ElevatorThroughBoreEncoder;
 
     private double currentPositionInches;
     private double targetPositionInches;
@@ -23,7 +24,7 @@ public class ElevatorSubsystem extends SubsystemBase {
         m_ElevatorMotorLeft = new CANSparkMax(ElevatorConstants.kElevatorLeftCanId, MotorType.kBrushless);
         m_ElevatorMotorRight = new CANSparkMax(ElevatorConstants.kElevatorRightCanId, MotorType.kBrushless);
         m_ElevatorPIDController = m_ElevatorMotorRight.getPIDController();
-        m_ElevatorThroughBoreEncoder = m_ElevatorMotorRight.getEncoder();
+        m_ElevatorThroughBoreEncoder = m_ElevatorMotorRight.getAbsoluteEncoder(Type.kDutyCycle);
         ConfigureMotors();
     }
 

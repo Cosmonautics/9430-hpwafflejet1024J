@@ -1,10 +1,11 @@
 package frc.robot.subsystems;
 
+import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkPIDController;
 import com.revrobotics.CANSparkBase.SoftLimitDirection;
 import com.revrobotics.CANSparkLowLevel.MotorType;
+import com.revrobotics.SparkAbsoluteEncoder.Type;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.IntakeConstants;
@@ -13,14 +14,14 @@ public class IntakeSubsystem extends SubsystemBase {
     private final CANSparkMax m_intakePivotMotor;
     private final CANSparkMax m_intakeMotorLeft;
     private final SparkPIDController m_pidController;
-    private final RelativeEncoder m_intakePivotAbsoluteEncoder;
+    private final AbsoluteEncoder m_intakePivotAbsoluteEncoder;
     private double m_targetSetpointRotations;
 
     public IntakeSubsystem() {
         m_intakePivotMotor = new CANSparkMax(IntakeConstants.kIntakePivotCanId, MotorType.kBrushless);
         m_intakeMotorLeft = new CANSparkMax(IntakeConstants.kIntakeLeftCanId, MotorType.kBrushless);
         m_pidController = m_intakePivotMotor.getPIDController();
-        m_intakePivotAbsoluteEncoder = m_intakePivotMotor.getEncoder();
+        m_intakePivotAbsoluteEncoder = m_intakePivotMotor.getAbsoluteEncoder(Type.kDutyCycle);
         configureMotors();
     }
 

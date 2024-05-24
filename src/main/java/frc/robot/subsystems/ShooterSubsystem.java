@@ -1,10 +1,11 @@
 package frc.robot.subsystems;
 
+import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkPIDController;
 import com.revrobotics.CANSparkBase.SoftLimitDirection;
 import com.revrobotics.CANSparkLowLevel.MotorType;
+import com.revrobotics.SparkAbsoluteEncoder.Type;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ShooterConstants;
@@ -18,7 +19,7 @@ public class ShooterSubsystem extends SubsystemBase {
     private final CANSparkMax m_shooterMotorRight;
     private final CANSparkMax m_shooterFeeder;
     private final SparkPIDController m_pivotPIDController;
-    private final RelativeEncoder m_pivotEncoder;
+    private final AbsoluteEncoder m_pivotEncoder;
 
     private double m_targetSetpointRotations;
     private boolean manualOverride;
@@ -30,7 +31,7 @@ public class ShooterSubsystem extends SubsystemBase {
         m_shooterMotorRight = new CANSparkMax(ShooterConstants.kShooterRightCanId, MotorType.kBrushless);
         m_shooterFeeder = new CANSparkMax(ShooterConstants.kShooterFeederCanId, MotorType.kBrushless);
         m_pivotPIDController = m_pivotMotor.getPIDController();
-        m_pivotEncoder = m_pivotMotor.getEncoder();
+        m_pivotEncoder = m_pivotMotor.getAbsoluteEncoder(Type.kDutyCycle);
         configureMotors();
         initializeDistanceAngleLookup();
     }

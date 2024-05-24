@@ -13,31 +13,31 @@ public class LimelightSubsystem extends SubsystemBase {
     }
 
     public boolean hasTarget() {
-        return LimelightHelpers.getTV("limelight");
+        return LimelightHelpers.getTV("");
     }
 
     public double getTargetX() {
-        return LimelightHelpers.getTX("limelight");
+        return LimelightHelpers.getTX("");
     }
 
     public double getTargetY() {
-        return LimelightHelpers.getTY("limelight");
+        return LimelightHelpers.getTY("");
     }
 
     public double getTargetArea() {
-        return LimelightHelpers.getTA("limelight");
+        return LimelightHelpers.getTA("");
     }
 
     public void setLEDOn() {
-        LimelightHelpers.setLEDMode_ForceOn("limelight");
+        LimelightHelpers.setLEDMode_ForceOn("");
     }
 
     public void setLEDOff() {
-        LimelightHelpers.setLEDMode_ForceOff("limelight");
+        LimelightHelpers.setLEDMode_ForceOff("");
     }
 
     public void setLEDBlink() {
-        LimelightHelpers.setLEDMode_ForceBlink("limelight");
+        LimelightHelpers.setLEDMode_ForceBlink("");
     }
 
     public double calculateDistanceToTarget(boolean isRed) {
